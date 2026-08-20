@@ -1,0 +1,37 @@
+.DS_Store
+/.build
+/build
+/SwiftDemo/build
+/Packages
+xcuserdata/
+DerivedData/
+.swiftpm/
+
+# This is the public distribution repository. Source, build tooling and the
+# license issuer live in the private repo and are copied here by its
+# publish_to_public.sh, which copies an allowlist. These entries exist so that a
+# stray file dropped in by hand is not committed by accident.
+/swift-markdown-kit/
+/swift-markdown-kitTests/
+/license-service/
+/license_issuer/
+/scripts/
+/swift-markdown-kit.xcodeproj/
+/swift-markdown-kit.xcworkspace/
+create_xcframework.sh
+package_release.sh
+publish_to_public.sh
+issue_*.sh
+deployment.md
+ABI-BASELINE.txt
+
+# Issued licenses are per-customer artifacts and belong to nobody's repository.
+*.smklicense
+
+# The framework is served from this tag's GitHub Release, not from git. A binary
+# committed here is permanent: every release would add megabytes that every
+# consumer clones forever, for versions they will never use. Package.swift
+# points at the release asset, and publish_to_public.sh generates it.
+/XCFrameworks/
+/SwiftDemo/Frameworks/
+*.xcframework

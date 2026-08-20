@@ -1,0 +1,57 @@
+SwiftMarkdownKit — Commercial Software License
+Copyright (c) 2026 MacDeer / BearNext. All rights reserved.
+
+This repository distributes SwiftMarkdownKit in binary form. It is commercial
+software, not open source. The source code is not published, and nothing here
+grants a right to it.
+
+The authoritative terms are published at https://macdeer.com/terms and take
+precedence over this summary. What follows is the short version.
+
+WHAT YOU MAY DO WITHOUT A LICENSE FILE
+
+  Download, integrate and evaluate the SDK with no time limit, on device and in
+  the simulator. Every feature renders. An unlicensed app shows a small badge
+  over the rendered content and logs one console warning; nothing is withheld
+  and nothing stops working.
+
+WHAT A LICENSE FILE ADDS
+
+  Removing that badge. A license is issued after purchase at
+  https://macdeer.com/pricing, is bound to your Apple Developer Team ID, and
+  covers every app that team signs — including apps you create later. It is
+  verified offline on device and sends no network request.
+
+  A license does not expire by date. It names an update window: builds of this
+  SDK released within that window may be used indefinitely in your apps. Using
+  builds released after the window ends requires renewing the update service.
+
+WHAT YOU MAY NOT DO
+
+  Redistribute, resell, publish, mirror, rent or sublicense the SDK itself,
+  including as part of a source bundle, template or starter kit. Integrating it
+  into your own application and shipping that application is exactly what the
+  license is for; shipping the SDK as something someone else can take out and
+  use is not.
+
+  Remove, disable, obscure or circumvent the license verification or the
+  unlicensed badge, or modify the binary to that end.
+
+  Reverse engineer, decompile or disassemble the framework, except to the
+  extent that applicable law expressly permits it despite this restriction.
+
+NO WARRANTY
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+
+Third-party components bundled with the framework are listed in
+THIRD-PARTY-NOTICES.md inside SwiftMarkdownKit.framework and remain under their
+own licenses.
+
+Questions: https://macdeer.com/contact
