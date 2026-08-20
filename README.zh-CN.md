@@ -46,7 +46,7 @@
 ## 特色
 
 - **真正为流式渲染优化。** 缓存已经稳定的内容，只更新仍在生成的尾部，长回答也能保持流畅。
-- **整段会话只用一个 WebView。** 避免每条消息创建一个渲染器带来的内存和布局开销。
+- **整段会话共用一个渲染器。** 避免每条消息各建一个渲染器带来的内存和布局开销。
 - **开箱即用的 LLM 内容支持。** Markdown、代码、公式、表格和未完成的流式语法统一处理。
 - **完全端侧运行。** 渲染资源随 SDK 提供，不依赖渲染服务和网络。
 - **接入简单。** SPM 与 XCFramework 都使用同一个 `import SwiftMarkdownKit`。
@@ -192,8 +192,8 @@ options.reasoning = MarkdownChatReasoningConfiguration(
 ```swift
 var options = MarkdownChatRenderOptions()
 
-// token 级 chunk 在送进 WebView 之前的聚合时长。模型每秒产出几十个 token，
-// 逐个送出意味着逐个 `evaluateJavaScript` 往返。运行时本身按帧节奏逐字上屏，
+// token 级 chunk 在交给渲染器之前的聚合时长。模型每秒产出几十个 token，
+// 逐个送出意味着逐次跨进程往返。运行时本身按帧节奏逐字上屏，
 // 因此这个参数不改变文字出现的时机，只减少跨进程往返次数。设为 0 则来一个送一个。
 options.chunkCoalescingInterval = 1.0 / 30.0   // 默认值
 ```

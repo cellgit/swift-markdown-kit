@@ -46,7 +46,7 @@ The iOS Markdown renderer built for streaming AI output. Render polished Markdow
 ## Why SwiftMarkdownKit
 
 - **Streaming-first performance.** Stable blocks are cached while only the unfinished tail is updated, keeping long AI answers responsive.
-- **One WebView for a full conversation.** Avoid the memory and layout cost of creating a renderer for every message.
+- **One renderer for a full conversation.** Avoid the memory and layout cost of standing up a separate renderer for every message.
 - **Ready for LLM output.** Markdown, code, math, tables and incomplete streaming syntax work together out of the box.
 - **Self-contained.** Rendering assets are bundled and run on-device with no rendering service or network dependency.
 - **Easy to adopt.** The same `import SwiftMarkdownKit` works with both Swift Package Manager and XCFramework.
@@ -208,9 +208,9 @@ configures the fold for the single-document renderer.
 ```swift
 var options = MarkdownChatRenderOptions()
 
-// How long token-sized chunks are gathered before crossing into the web view.
+// How long token-sized chunks are gathered before being handed to the renderer.
 // A model streams tens of tokens a second and each one otherwise costs its own
-// `evaluateJavaScript` round trip. The runtime paces its own reveal per frame
+// crossing into the renderer. The runtime paces its own reveal per frame
 // regardless, so this changes nothing about when text appears — only how many
 // process crossings it takes to get there. Set to 0 to hand every chunk over
 // as it arrives.
