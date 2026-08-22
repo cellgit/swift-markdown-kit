@@ -40,6 +40,7 @@
 - 推理折叠：模型的思维链——无论写在正文里的 `<think>` … `</think>`，还是单独的 `reasoning_content` 字段——都会流进正文上方的折叠面板，正文开始时自动收起。
 - SwiftUI 与 UIKit 的单文档、整会话渲染组件。
 - 深浅色主题、动态字体、自定义主题 token 和内容边距。
+- 内置英文与简体中文：SDK 自身的文案跟随读者的系统语言，也可以跟随 App 当前展示的语言。
 - 点击交互开箱即用：链接在应用内浏览器打开、图片全屏预览、代码和消息可复制；想自己接管其中某一项，改一行即可。
 - 链接、渲染完成、高度变化、错误和自定义语法事件。
 
@@ -65,7 +66,7 @@
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/cellgit/swift-markdown-kit.git", from: "0.0.4")
+    .package(url: "https://github.com/cellgit/swift-markdown-kit.git", from: "0.0.5")
 ]
 ```
 
@@ -73,7 +74,7 @@ dependencies: [
 
 ### XCFramework
 
-从 [v0.0.4 Release](https://github.com/cellgit/swift-markdown-kit/releases/tag/v0.0.4) 下载 `SwiftMarkdownKit-0.0.4.xcframework.zip`。解压后把 `SwiftMarkdownKit.xcframework` 拖入 Xcode，加入 App target，并选择 **Embed & Sign**。
+从 [v0.0.5 Release](https://github.com/cellgit/swift-markdown-kit/releases/tag/v0.0.5) 下载 `SwiftMarkdownKit-0.0.5.xcframework.zip`。解压后把 `SwiftMarkdownKit.xcframework` 拖入 Xcode，加入 App target，并选择 **Embed & Sign**。
 
 ### SwiftUI 渲染 Markdown
 
@@ -210,5 +211,31 @@ let options = MarkdownRenderOptions(
 
 MarkdownRenderView(markdown: markdown, options: options)
 ```
+
+### 多语言
+
+SDK 自身显示的文案——代码块的复制按钮、推理折叠区的标题、消息操作的辅助功能标签——内置英文与简体中文。无需任何开关：只要不传对应的文案参数，每位读者看到的就是自己系统语言对应的文案，找不到时回退英文：
+
+```swift
+let options = MarkdownRenderOptions()
+```
+
+如果 App 自带语言切换，希望 SDK 跟随 App 而不是跟随系统，指定语言即可：
+
+```swift
+MarkdownRenderLocalization.language = .simplifiedChinese
+```
+
+请在启动时、构建交给渲染器的 options 之前设置。文案是在 options **被构造时**读取的，之后再改不会影响已经存在的 options。
+
+自己传入的文案始终优先，已经做过翻译的 App 可以继续用自己的措辞：
+
+```swift
+MarkdownRenderOptions(copyText: "拷贝")
+```
+
+SDK 跟随的是**设备**语言，而不是宿主 App 声明的语言。iOS 默认会把进程内所有 framework 限制在 App 自身声明的语言范围内——如果 App 只是把中文文案写死、并没有提供 `zh-Hans.lproj`，那么在中文设备上 SDK 反而会显示英文。改为按设备语言解析后，无论 App 有没有声明多语言，SDK 都能正确翻译。如果希望 SDK 跟随 App 的语言，指定 ``language`` 即可。
+
+渲染出的 Markdown 是作者的正文，不会被翻译。
 
 正式发布时，把签发的 `.smklicense` 文件加入 **Copy Bundle Resources**。未放入 license 也可以完整评估全部功能，只会显示一个小型未授权角标。

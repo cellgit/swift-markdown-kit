@@ -40,6 +40,7 @@ The iOS Markdown renderer built for streaming AI output. Render polished Markdow
 - Reasoning folds: a model's chain of thought — inline `<think>` … `</think>` or a separate `reasoning_content` field — streams into a collapsible panel above the answer and folds itself away once the answer starts.
 - Document and conversation renderers for SwiftUI and UIKit.
 - Light/dark themes, Dynamic Type, custom theme tokens and content insets.
+- English and Simplified Chinese out of the box: the SDK's own words follow the reader's device, or the language your app is already showing.
 - Taps handled for you: links open in an in-app browser, images open full screen, code and messages copy — with a one-line escape hatch when the app wants one of them back.
 - Link, render, height, error and custom-syntax events.
 
@@ -65,7 +66,7 @@ Or add it to `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/cellgit/swift-markdown-kit.git", from: "0.0.4")
+    .package(url: "https://github.com/cellgit/swift-markdown-kit.git", from: "0.0.5")
 ]
 ```
 
@@ -73,7 +74,7 @@ Add the `SwiftMarkdownKit` product to your app target.
 
 ### XCFramework
 
-Download `SwiftMarkdownKit-0.0.4.xcframework.zip` from the [v0.0.4 release](https://github.com/cellgit/swift-markdown-kit/releases/tag/v0.0.4). Drag `SwiftMarkdownKit.xcframework` into Xcode, add it to the app target, and select **Embed & Sign**.
+Download `SwiftMarkdownKit-0.0.5.xcframework.zip` from the [v0.0.5 release](https://github.com/cellgit/swift-markdown-kit/releases/tag/v0.0.5). Drag `SwiftMarkdownKit.xcframework` into Xcode, add it to the app target, and select **Embed & Sign**.
 
 ### Render Markdown with SwiftUI
 
@@ -229,5 +230,31 @@ let options = MarkdownRenderOptions(
 
 MarkdownRenderView(markdown: markdown, options: options)
 ```
+
+### Localization
+
+The words the SDK puts on screen itself — a code block's copy button, the reasoning fold's header, the accessibility labels on message actions — ship in English and Simplified Chinese. There is nothing to turn on. Leave the string options unset and each reader gets the language their device is set to, falling back to English:
+
+```swift
+let options = MarkdownRenderOptions()
+```
+
+Pin the language when your app has its own language picker and the SDK should follow that rather than iOS:
+
+```swift
+MarkdownRenderLocalization.language = .simplifiedChinese
+```
+
+Set it during startup, before you build the options you hand to a renderer. The strings are read when an options value is *constructed*, so a later change does not reach back into options that already exist.
+
+Any string you pass yourself still wins, so an app that has already translated these words keeps its own wording:
+
+```swift
+MarkdownRenderOptions(copyText: "拷贝")
+```
+
+The SDK follows the **device's** language, not the host app's. iOS normally holds every framework in a process to the app's own declared localizations, so an app that hardcodes its Chinese strings — rather than shipping a `zh-Hans.lproj` — would otherwise force this SDK to English on a Chinese device. Resolving against the device instead means the SDK is translated whether or not the app ever declared a localization. Pin ``language`` if you want it held to the app's language instead.
+
+Rendered Markdown is the author's text and is never translated.
 
 For production, add your issued `.smklicense` file to **Copy Bundle Resources**. Evaluation remains fully functional without one and displays a small unlicensed badge.
