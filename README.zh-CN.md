@@ -66,7 +66,7 @@
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/cellgit/swift-markdown-kit.git", from: "0.0.6")
+    .package(url: "https://github.com/cellgit/swift-markdown-kit.git", from: "0.0.7")
 ]
 ```
 
@@ -74,7 +74,7 @@ dependencies: [
 
 ### XCFramework
 
-从 [v0.0.6 Release](https://github.com/cellgit/swift-markdown-kit/releases/tag/v0.0.6) 下载 `SwiftMarkdownKit-0.0.6.xcframework.zip`。解压后把 `SwiftMarkdownKit.xcframework` 拖入 Xcode，加入 App target，并选择 **Embed & Sign**。
+从 [v0.0.7 Release](https://github.com/cellgit/swift-markdown-kit/releases/tag/v0.0.7) 下载 `SwiftMarkdownKit-0.0.7.xcframework.zip`。解压后把 `SwiftMarkdownKit.xcframework` 拖入 Xcode，加入 App target，并选择 **Embed & Sign**。
 
 ### SwiftUI 渲染 Markdown
 
