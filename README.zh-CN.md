@@ -74,7 +74,7 @@ iPhone 上的一段录屏 —— 思维链先到并自动折叠，正文逐字�
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/cellgit/swift-markdown-kit.git", from: "0.0.8")
+    .package(url: "https://github.com/cellgit/swift-markdown-kit.git", from: "0.0.9")
 ]
 ```
 
@@ -82,7 +82,7 @@ dependencies: [
 
 ### XCFramework
 
-从 [v0.0.8 Release](https://github.com/cellgit/swift-markdown-kit/releases/tag/v0.0.8) 下载 `SwiftMarkdownKit-0.0.8.xcframework.zip`。解压后把 `SwiftMarkdownKit.xcframework` 拖入 Xcode，加入 App target，并选择 **Embed & Sign**。
+从 [v0.0.9 Release](https://github.com/cellgit/swift-markdown-kit/releases/tag/v0.0.9) 下载 `SwiftMarkdownKit-0.0.9.xcframework.zip`。解压后把 `SwiftMarkdownKit.xcframework` 拖入 Xcode，加入 App target，并选择 **Embed & Sign**。
 
 ### SwiftUI 渲染 Markdown
 

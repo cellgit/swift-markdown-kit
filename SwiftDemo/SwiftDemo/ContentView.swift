@@ -151,6 +151,20 @@ line break (two trailing spaces).
 | Math         | Supported     | KaTeX inline + block                     |
 | Streaming    | Incremental   | rAF-coalesced, O(n) total cost          |
 
+### Math inside cells
+
+A bar is both the column separator and half the notation of an absolute value,
+a norm and a conditional probability. Formulas keep their cell.
+
+| Formula          | Expression                                                        | Note            |
+| ---------------- | ----------------------------------------------------------------- | --------------- |
+| Conditional      | $P(B|A) = \dfrac{P(AB)}{P(A)}$（$P(A)>0$）                          | Bar inside math |
+| Vector modulus   | $|\vec{a}| = \sqrt{x^2 + y^2}$                                     | Absolute value  |
+| Dot product      | $\vec{a} \cdot \vec{b} = |\vec{a}||\vec{b}|\cos\theta$            | Repeated bars   |
+| Triangle ineq.   | $||a|-|b|| \le |a \pm b| \le |a| + |b|$                            | Nested bars     |
+| Distance         | $d = \dfrac{|\vec{PA} \cdot \vec{n}|}{|\vec{n}|}$                  | Bars in a frac  |
+| Price, not math  | $100                                                              | Stays two cells |
+
 ### Wide table (should horizontally scroll, not overflow)
 
 | ID  | Customer            | License Type | Bundle ID                              | Issued At                   | Updates Until / Valid Until    | Status     |
