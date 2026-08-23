@@ -51,7 +51,7 @@ struct ContentView: View {
 }
 
 private let sampleMarkdown = ##"""
-# Swift Markdown Kit · v0.0.7
+# Swift Markdown Kit · v0.0.8
 
 ## Math smoke test (top-of-page)
 
@@ -87,7 +87,7 @@ in the surrounding text colour:
 
 This demo renders one comprehensive Markdown document through
 `SwiftMarkdownKit.xcframework`. It exercises every renderer feature that
-ships in v0.0.7, including the streaming-friendly math and code paths.
+ships in v0.0.8, including the streaming-friendly math and code paths.
 
 ## Headings
 
@@ -263,7 +263,7 @@ The SDK guide is [in the repo][guide]. The change-log lives at the same
 
 ## Closing
 
-That's everything the v0.0.7 renderer supports. If anything above looks
+That's everything the v0.0.8 renderer supports. If anything above looks
 broken on your device, please attach the screenshot to a GitHub issue and
 include the SDK release date (visible at the bottom of the screen).
 """##
