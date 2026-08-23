@@ -8,6 +8,14 @@
 
 ## 效果展示
 
+iPhone 上的一段录屏 —— 思维链先到并自动折叠，正文逐字流入，公式在还没写完的时候
+就已经在排版了。GitHub 不能内嵌播放，点下面这张图即可观看，也可以直接在
+[产品页](https://macdeer.com/swift-markdown-kit#recording)上播放。
+
+<a href="https://macdeer.com/media/swift-markdown-kit/v0.0.9/demo.mp4">
+  <img src="https://macdeer.com/media/swift-markdown-kit/v0.0.9/poster.jpg" width="260" alt="点击播放录屏：iPhone 上渲染一段流式回答">
+</a>
+
 <table>
   <tr>
     <td width="33%"><img src="github_images/IMG_6973.PNG" alt="富文本与标题"></td>

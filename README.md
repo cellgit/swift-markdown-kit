@@ -8,6 +8,15 @@ The iOS Markdown renderer built for streaming AI output. Render polished Markdow
 
 ## Showcase
 
+A screen recording on an iPhone — the reasoning arrives first and folds itself
+away, the answer streams in, and the formulas are typeset while they are still
+being written. GitHub cannot play a video inline, so the still below links to
+it; it also plays on the [product page](https://macdeer.com/swift-markdown-kit#recording).
+
+<a href="https://macdeer.com/media/swift-markdown-kit/v0.0.9/demo.mp4">
+  <img src="https://macdeer.com/media/swift-markdown-kit/v0.0.9/poster.jpg" width="260" alt="Play the screen recording: a streamed answer rendering on an iPhone">
+</a>
+
 <table>
   <tr>
     <td width="33%"><img src="github_images/IMG_6973.PNG" alt="Rich text and headings"></td>
