@@ -62,7 +62,7 @@ iPhone 上的一段录屏 —— 思维链先到并自动折叠，正文逐字�
 
 ## 安装与使用
 
-需要 iOS 17 或更高版本。
+需要 iOS 17 或更高版本。macOS 通过 Mac Catalyst 支持 —— 用的是同一套实现，所以公式、表格和流式回答在两端渲染结果一致。
 
 ### Swift Package Manager
 
@@ -74,7 +74,7 @@ iPhone 上的一段录屏 —— 思维链先到并自动折叠，正文逐字�
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/cellgit/swift-markdown-kit.git", from: "0.0.9")
+    .package(url: "https://github.com/cellgit/swift-markdown-kit.git", from: "0.0.10")
 ]
 ```
 
@@ -82,7 +82,7 @@ dependencies: [
 
 ### XCFramework
 
-从 [v0.0.9 Release](https://github.com/cellgit/swift-markdown-kit/releases/tag/v0.0.9) 下载 `SwiftMarkdownKit-0.0.9.xcframework.zip`。解压后把 `SwiftMarkdownKit.xcframework` 拖入 Xcode，加入 App target，并选择 **Embed & Sign**。
+从 [v0.0.10 Release](https://github.com/cellgit/swift-markdown-kit/releases/tag/v0.0.10) 下载 `SwiftMarkdownKit-0.0.10.xcframework.zip`。解压后把 `SwiftMarkdownKit.xcframework` 拖入 Xcode，加入 App target，并选择 **Embed & Sign**。
 
 ### SwiftUI 渲染 Markdown
 

@@ -63,7 +63,7 @@ it; it also plays on the [product page](https://macdeer.com/swift-markdown-kit#r
 
 ## Installation & Usage
 
-Requires iOS 17 or later.
+Requires iOS 17 or later. Mac apps are supported through Mac Catalyst — the same implementation, so a formula, a table or a streamed answer renders identically on both.
 
 ### Swift Package Manager
 
@@ -75,7 +75,7 @@ Or add it to `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/cellgit/swift-markdown-kit.git", from: "0.0.9")
+    .package(url: "https://github.com/cellgit/swift-markdown-kit.git", from: "0.0.10")
 ]
 ```
 
@@ -83,7 +83,7 @@ Add the `SwiftMarkdownKit` product to your app target.
 
 ### XCFramework
 
-Download `SwiftMarkdownKit-0.0.9.xcframework.zip` from the [v0.0.9 release](https://github.com/cellgit/swift-markdown-kit/releases/tag/v0.0.9). Drag `SwiftMarkdownKit.xcframework` into Xcode, add it to the app target, and select **Embed & Sign**.
+Download `SwiftMarkdownKit-0.0.10.xcframework.zip` from the [v0.0.10 release](https://github.com/cellgit/swift-markdown-kit/releases/tag/v0.0.10). Drag `SwiftMarkdownKit.xcframework` into Xcode, add it to the app target, and select **Embed & Sign**.
 
 ### Render Markdown with SwiftUI
 

@@ -5,7 +5,10 @@ import PackageDescription
 let package = Package(
     name: "swift-markdown-kit",
     platforms: [
-        .iOS(.v17)
+        .iOS(.v17),
+        // Mac Catalyst runs the same UIKit implementation, so macOS gets the
+        // renderer that has been tested on iOS rather than a second one.
+        .macCatalyst(.v17)
     ],
     products: [
         .library(
@@ -20,11 +23,11 @@ let package = Package(
         //
         // The URL is immutable: a release asset cannot be replaced under a tag
         // that already exists, so this checksum stays correct for as long as
-        // v0.0.9 does.
+        // v0.0.10 does.
         .binaryTarget(
             name: "SwiftMarkdownKit",
-            url: "https://github.com/cellgit/swift-markdown-kit/releases/download/v0.0.9/SwiftMarkdownKit-0.0.9.xcframework.zip",
-            checksum: "78fe21e3ed14945c527787bcbeb45d9c98cc5b282b446b1d6bcd5b211a13edfd"
+            url: "https://github.com/cellgit/swift-markdown-kit/releases/download/v0.0.10/SwiftMarkdownKit-0.0.10.xcframework.zip",
+            checksum: "25da3f640e4d66c80729e2aa48b96aab952690a0f93f5fdec8502942de1ad9f3"
         )
     ]
 )
