@@ -8,14 +8,11 @@ The iOS Markdown renderer built for streaming AI output. Render polished Markdow
 
 ## Showcase
 
-A screen recording on an iPhone — the reasoning arrives first and folds itself
+A screen recording on an iPhone: the reasoning arrives first and folds itself
 away, the answer streams in, and the formulas are typeset while they are still
-being written. GitHub cannot play a video inline, so the still below links to
-it; it also plays on the [product page](https://macdeer.com/swift-markdown-kit#recording).
+being written.
 
-<a href="https://macdeer.com/media/swift-markdown-kit/v0.0.9/demo.mp4">
-  <img src="https://macdeer.com/media/swift-markdown-kit/v0.0.9/poster.jpg" width="260" alt="Play the screen recording: a streamed answer rendering on an iPhone">
-</a>
+<video src="https://macdeer.com/media/swift-markdown-kit/v0.0.9/demo.mp4" controls muted width="320"></video>
 
 <table>
   <tr>
@@ -45,25 +42,21 @@ it; it also plays on the [product page](https://macdeer.com/swift-markdown-kit#r
 - Complete Markdown: headings, rich text, nested lists, task lists, blockquotes, tables, links, emoji and optional raw HTML.
 - Code blocks with syntax highlighting for 180+ languages and built-in copy actions.
 - KaTeX inline and display math, including `\ce{}` chemistry notation.
-- Tolerant of the not-quite-standard Markdown models actually produce: a `$` beside a price, a bracketed citation, a formula whose closing brace has not arrived yet. Nothing turns red — anything KaTeX cannot parse falls back to the characters that were written.
+- Nothing turns red on half-written Markdown. A `$` beside a price, a bracketed citation, a formula whose closing brace has not arrived — an expression that cannot be parsed falls back to the characters that were written.
 - Reasoning folds: a model's chain of thought — inline `<think>` … `</think>` or a separate `reasoning_content` field — streams into a collapsible panel above the answer and folds itself away once the answer starts.
+- Long answers stay smooth all the way to the end, and one renderer draws a whole conversation rather than one per message.
 - Document and conversation renderers for SwiftUI and UIKit.
 - Light/dark themes, Dynamic Type, custom theme tokens and content insets.
 - English and Simplified Chinese out of the box: the SDK's own words follow the reader's device, or the language your app is already showing.
 - Taps handled for you: links open in an in-app browser, images open full screen, code and messages copy — with a one-line escape hatch when the app wants one of them back.
 - Link, render, height, error and custom-syntax events.
-
-## Why SwiftMarkdownKit
-
-- **Streaming-first performance.** Stable blocks are cached while only the unfinished tail is updated, keeping long AI answers responsive.
-- **One renderer for a full conversation.** Avoid the memory and layout cost of standing up a separate renderer for every message.
-- **Ready for LLM output.** Markdown, code, math, tables and incomplete streaming syntax work together out of the box.
-- **Self-contained.** Rendering assets are bundled and run on-device with no rendering service or network dependency.
-- **Easy to adopt.** The same `import SwiftMarkdownKit` works with both Swift Package Manager and XCFramework.
+- Renders on the device. No rendering service, no network call, nothing leaves the app.
 
 ## Installation & Usage
 
 Requires iOS 17 or later. Mac apps are supported through Mac Catalyst — the same implementation, so a formula, a table or a streamed answer renders identically on both.
+
+Build a Mac against the **My Mac (Mac Catalyst)** destination, not **My Mac**. The latter builds for native macOS, where there is no UIKit and no slice to link, and it fails with `No such module 'UIKit'`. A native AppKit target is not supported.
 
 ### Swift Package Manager
 
@@ -215,15 +208,12 @@ configures the fold for the single-document renderer.
 
 ### Tune the streaming path
 
+How long arriving chunks are gathered before being handed to the renderer.
+This does not change when text appears — the reveal is paced per frame either
+way. Set it to 0 to hand every chunk over as it arrives.
+
 ```swift
 var options = MarkdownChatRenderOptions()
-
-// How long token-sized chunks are gathered before being handed to the renderer.
-// A model streams tens of tokens a second and each one otherwise costs its own
-// crossing into the renderer. The runtime paces its own reveal per frame
-// regardless, so this changes nothing about when text appears — only how many
-// process crossings it takes to get there. Set to 0 to hand every chunk over
-// as it arrives.
 options.chunkCoalescingInterval = 1.0 / 30.0   // default
 ```
 

@@ -8,13 +8,10 @@
 
 ## 效果展示
 
-iPhone 上的一段录屏 —— 思维链先到并自动折叠，正文逐字流入，公式在还没写完的时候
-就已经在排版了。GitHub 不能内嵌播放，点下面这张图即可观看，也可以直接在
-[产品页](https://macdeer.com/swift-markdown-kit#recording)上播放。
+iPhone 上的一段录屏：思维链先到并自动折叠，正文逐字流入，公式在还没写完的时候
+就已经在排版了。
 
-<a href="https://macdeer.com/media/swift-markdown-kit/v0.0.9/demo.mp4">
-  <img src="https://macdeer.com/media/swift-markdown-kit/v0.0.9/poster.jpg" width="260" alt="点击播放录屏：iPhone 上渲染一段流式回答">
-</a>
+<video src="https://macdeer.com/media/swift-markdown-kit/v0.0.9/demo.mp4" controls muted width="320"></video>
 
 <table>
   <tr>
@@ -44,25 +41,21 @@ iPhone 上的一段录屏 —— 思维链先到并自动折叠，正文逐字�
 - 完整 Markdown：标题、富文本、嵌套列表、任务项、引用、表格、链接、Emoji，以及可选的原始 HTML。
 - 180+ 语言代码高亮，内置复制代码操作。
 - KaTeX 行内与块级公式，支持 `\ce{}` 化学式。
-- 容忍模型真实输出里那种「不太标准」的 Markdown：价格旁边的 `$`、方括号引用、右花括号还没流完的公式。任何内容都不会变红——KaTeX 解析不了的部分退回作者原本写下的字符。
+- 半截的 Markdown 不会变红。价格旁边的 `$`、方括号引用、右花括号还没流完的公式——解析不了的部分退回作者原本写下的字符。
 - 推理折叠：模型的思维链——无论写在正文里的 `<think>` … `</think>`，还是单独的 `reasoning_content` 字段——都会流进正文上方的折叠面板，正文开始时自动收起。
+- 长回答从头到尾保持流畅，整段会话共用一个渲染器，不必每条消息各建一个。
 - SwiftUI 与 UIKit 的单文档、整会话渲染组件。
 - 深浅色主题、动态字体、自定义主题 token 和内容边距。
 - 内置英文与简体中文：SDK 自身的文案跟随读者的系统语言，也可以跟随 App 当前展示的语言。
 - 点击交互开箱即用：链接在应用内浏览器打开、图片全屏预览、代码和消息可复制；想自己接管其中某一项，改一行即可。
 - 链接、渲染完成、高度变化、错误和自定义语法事件。
-
-## 特色
-
-- **真正为流式渲染优化。** 缓存已经稳定的内容，只更新仍在生成的尾部，长回答也能保持流畅。
-- **整段会话共用一个渲染器。** 避免每条消息各建一个渲染器带来的内存和布局开销。
-- **开箱即用的 LLM 内容支持。** Markdown、代码、公式、表格和未完成的流式语法统一处理。
-- **完全端侧运行。** 渲染资源随 SDK 提供，不依赖渲染服务和网络。
-- **接入简单。** SPM 与 XCFramework 都使用同一个 `import SwiftMarkdownKit`。
+- 完全在设备上渲染。没有渲染服务，不发网络请求，内容不出 App。
 
 ## 安装与使用
 
 需要 iOS 17 或更高版本。macOS 通过 Mac Catalyst 支持 —— 用的是同一套实现，所以公式、表格和流式回答在两端渲染结果一致。
+
+Mac 端请选 **My Mac (Mac Catalyst)** 目标，不要选 **My Mac**。后者是原生 macOS，没有 UIKit、也没有可链接的切片，会报 `No such module 'UIKit'`。原生 AppKit target 不在支持范围内。
 
 ### Swift Package Manager
 
@@ -198,12 +191,11 @@ options.reasoning = MarkdownChatReasoningConfiguration(
 
 ### 调整流式路径
 
+chunk 在交给渲染器之前的聚合时长。它不改变文字出现的时机——上屏节奏由运行时按帧
+控制。设为 0 则来一个送一个。
+
 ```swift
 var options = MarkdownChatRenderOptions()
-
-// token 级 chunk 在交给渲染器之前的聚合时长。模型每秒产出几十个 token，
-// 逐个送出意味着逐次跨进程往返。运行时本身按帧节奏逐字上屏，
-// 因此这个参数不改变文字出现的时机，只减少跨进程往返次数。设为 0 则来一个送一个。
 options.chunkCoalescingInterval = 1.0 / 30.0   // 默认值
 ```
 
