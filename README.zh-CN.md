@@ -11,7 +11,9 @@
 iPhone 上的一段录屏：思维链先到并自动折叠，正文逐字流入，公式在还没写完的时候
 就已经在排版了。
 
-<video src="https://macdeer.com/media/swift-markdown-kit/v0.0.9/demo.mp4" controls muted width="320"></video>
+<a href="https://macdeer.com/media/swift-markdown-kit/v0.0.9/demo.mp4">
+  <img src="https://macdeer.com/media/swift-markdown-kit/v0.0.9/poster-play.jpg" width="300" alt="点击播放录屏：iPhone 上渲染一段流式回答">
+</a>
 
 <table>
   <tr>
