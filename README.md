@@ -12,7 +12,9 @@ A screen recording on an iPhone: the reasoning arrives first and folds itself
 away, the answer streams in, and the formulas are typeset while they are still
 being written.
 
-<video src="https://macdeer.com/media/swift-markdown-kit/v0.0.10/demo.mp4" controls muted playsinline width="320"></video>
+<a href="https://macdeer.com/media/swift-markdown-kit/v0.0.9/demo.mp4">
+  <img src="https://macdeer.com/media/swift-markdown-kit/v0.0.9/poster-play.jpg" width="300" alt="Play the screen recording: a streamed answer rendering on an iPhone">
+</a>
 
 <table>
   <tr>
