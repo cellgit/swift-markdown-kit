@@ -69,7 +69,7 @@ Mac 端请选 **My Mac (Mac Catalyst)** 目标，不要选 **My Mac**。后者�
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/cellgit/swift-markdown-kit.git", from: "0.0.12")
+    .package(url: "https://github.com/cellgit/swift-markdown-kit.git", from: "0.0.13")
 ]
 ```
 
@@ -77,7 +77,7 @@ dependencies: [
 
 ### XCFramework
 
-从 [v0.0.12 Release](https://github.com/cellgit/swift-markdown-kit/releases/tag/v0.0.12) 下载 `SwiftMarkdownKit-0.0.12.xcframework.zip`。解压后把 `SwiftMarkdownKit.xcframework` 拖入 Xcode，加入 App target，并选择 **Embed & Sign**。
+从 [v0.0.13 Release](https://github.com/cellgit/swift-markdown-kit/releases/tag/v0.0.13) 下载 `SwiftMarkdownKit-0.0.13.xcframework.zip`。解压后把 `SwiftMarkdownKit.xcframework` 拖入 Xcode，加入 App target，并选择 **Embed & Sign**。
 
 ### SwiftUI 渲染 Markdown
 
