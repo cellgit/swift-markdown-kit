@@ -70,7 +70,7 @@ Or add it to `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/cellgit/swift-markdown-kit.git", from: "0.0.13")
+    .package(url: "https://github.com/cellgit/swift-markdown-kit.git", from: "0.0.14")
 ]
 ```
 
@@ -78,7 +78,7 @@ Add the `SwiftMarkdownKit` product to your app target.
 
 ### XCFramework
 
-Download `SwiftMarkdownKit-0.0.13.xcframework.zip` from the [v0.0.13 release](https://github.com/cellgit/swift-markdown-kit/releases/tag/v0.0.13). Drag `SwiftMarkdownKit.xcframework` into Xcode, add it to the app target, and select **Embed & Sign**.
+Download `SwiftMarkdownKit-0.0.14.xcframework.zip` from the [v0.0.14 release](https://github.com/cellgit/swift-markdown-kit/releases/tag/v0.0.14). Drag `SwiftMarkdownKit.xcframework` into Xcode, add it to the app target, and select **Embed & Sign**.
 
 ### Render Markdown with SwiftUI
 
