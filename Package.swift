@@ -23,11 +23,11 @@ let package = Package(
         //
         // The URL is immutable: a release asset cannot be replaced under a tag
         // that already exists, so this checksum stays correct for as long as
-        // v0.0.18 does.
+        // v0.0.19 does.
         .binaryTarget(
             name: "SwiftMarkdownKit",
-            url: "https://github.com/cellgit/swift-markdown-kit/releases/download/v0.0.18/SwiftMarkdownKit-0.0.18.xcframework.zip",
-            checksum: "7b81b8736ae5fafb7c31693bb39ebfcc73d30cae5b6c3ffae6fef50a26a35d3e"
+            url: "https://github.com/cellgit/swift-markdown-kit/releases/download/v0.0.19/SwiftMarkdownKit-0.0.19.xcframework.zip",
+            checksum: "e8a7c3c632eacaef7077f34faf4c7d984adf85dc6e883f5f81e553b37d258753"
         )
     ]
 )
